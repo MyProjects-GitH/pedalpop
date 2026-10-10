@@ -864,9 +864,21 @@ h3 {
     font-size: 21px;
 }
 
-.order-bike-price {
+.order-bike-offer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 14px;
     margin-bottom: 12px;
+}
+
+.order-bike-price {
+    margin: 0;
     font-family: "Manrope", sans-serif;
+}
+
+.order-bike-offer .bike-inclusion {
+    margin: 0;
 }
 
 .order-bike-price strong {
