@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f8f4" />
+    <title>PedalPOP | Sewa sepeda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+    <header class="app-header">
+        <nav class="navbar" aria-label="Navigasi utama">
+            <a class="brand" href="#beranda" aria-label="PedalPOP, beranda">
+                <span class="brand-mark" aria-hidden="true"><i data-lucide="bike"></i></span>
+                <span class="brand-name">pedal<span>pop</span></span>
+            </a>
+
+            <form class="search-bar" role="search" id="bike-search">
+                <i class="search-icon" data-lucide="search" aria-hidden="true"></i>
+                <input id="search-input" name="q" type="search" placeholder="Cari jenis sepeda..." autocomplete="off" />
+                <button class="search-submit" type="submit" aria-label="Cari sepeda">
+                    <i data-lucide="search" aria-hidden="true"></i>
+                    <span>Cari</span>
+                </button>
+            </form>
+        </nav>
+    </header>
+
+    <main id="beranda" class="content">
+        <section class="intro" aria-labelledby="page-title">
+            <div>
+                <p class="eyebrow"><span class="status-dot"></span> Rancah, Ciamis</p>
+                <h1 id="page-title">Desa lebih seru <span>dengan sepeda.</span></h1>
+                <p class="intro-copy">Pilih sepeda favoritmu, lalu mulai jalan-jalan.</p>
+            </div>
+            <div class="intro-bike-icon" aria-label="Ikon sepeda untuk menjelajahi jalan desa">
+                <i data-lucide="bike" aria-hidden="true"></i>
+            </div>
+        </section>
+
+        <section class="bikes" id="pilih-sepeda" aria-labelledby="bikes-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">PILIHAN HARI INI</p>
+                    <h2 id="bikes-title">Sepeda di dekatmu</h2>
+                </div>
+                <div class="section-actions">
+                    <span class="result-count" id="result-count">6 sepeda</span>
+                    <span class="result-count" id="result-count">|</span>
+                    <span class="result-count" id="result-count">Filter Harga :</span>
+                    <div class="price-sort-buttons" role="group" aria-label="Urutkan sepeda berdasarkan harga">
+                        <button class="price-sort-button" id="price-sort-desc" type="button" aria-label="Urutkan dari harga termahal ke termurah" aria-pressed="false" title="Harga termahal ke termurah">
+                            <i data-lucide="arrow-up" aria-hidden="true"></i>
+                        </button>
+                        <button class="price-sort-button" id="price-sort-asc" type="button" aria-label="Urutkan dari harga termurah ke termahal" aria-pressed="false" title="Harga termurah ke termahal">
+                            <i data-lucide="arrow-down" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <button class="reset-filter-button" id="reset-filter" type="button">
+                        <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+                        <span>Reset</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="bike-grid" id="bike-grid">
+                <article class="bike-card" data-search="polygon path 3 sepeda gunung dago bandung" data-price="45000">
+                    <div class="bike-image image-trail" role="img" aria-label="Sepeda gunung Polygon di jalur alam">
+                    </div>
+                    <div class="bike-details">
+                        <h3>Polygon Path 3</h3>
+                        <div class="bike-footer">
+                            <span class="bike-price"><strong>Rp45.000</strong> <small>/ jam</small></span>
+                            <button class="order-button" type="button" aria-label="Pesan Polygon Path 3">
+                                <i data-lucide="message-circle" aria-hidden="true"></i>
+                                <span>Pesan</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bike-card" data-search="united clovis city bike sepeda kota braga bandung" data-price="35000">
+                    <div class="bike-image image-city" role="img" aria-label="Sepeda kota United Clovis">
+                    </div>
+                    <div class="bike-details">
+                        <h3>United Clovis</h3>
+                        <div class="bike-footer">
+                            <span class="bike-price"><strong>Rp35.000</strong> <small>/ jam</small></span>
+                            <button class="order-button" type="button" aria-label="Pesan United Clovis">
+                                <i data-lucide="message-circle" aria-hidden="true"></i>
+                                <span>Pesan</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bike-card" data-search="trek marlin 5 sepeda gunung mtb" data-price="55000">
+                    <div class="bike-image image-trek" role="img" aria-label="Sepeda gunung Trek Marlin 5">
+                    </div>
+                    <div class="bike-details">
+                        <h3>Trek Marlin 5</h3>
+                        <div class="bike-footer">
+                            <span class="bike-price"><strong>Rp55.000</strong> <small>/ jam</small></span>
+                            <button class="order-button" type="button" aria-label="Pesan Trek Marlin 5">
+                                <i data-lucide="message-circle" aria-hidden="true"></i>
+                                <span>Pesan</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bike-card" data-search="polygon siskiu d5 sepeda gunung trail" data-price="65000">
+                    <div class="bike-image image-siskiu" role="img" aria-label="Sepeda gunung Polygon Siskiu D5">
+                    </div>
+                    <div class="bike-details">
+                        <h3>Polygon Siskiu D5</h3>
+                        <div class="bike-footer">
+                            <span class="bike-price"><strong>Rp65.000</strong> <small>/ jam</small></span>
+                            <button class="order-button" type="button" aria-label="Pesan Polygon Siskiu D5">
+                                <i data-lucide="message-circle" aria-hidden="true"></i>
+                                <span>Pesan</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bike-card" data-search="united miami city bike sepeda kota" data-price="30000">
+                    <div class="bike-image image-miami" role="img" aria-label="Sepeda kota United Miami">
+                    </div>
+                    <div class="bike-details">
+                        <h3>United Miami</h3>
+                        <div class="bike-footer">
+                            <span class="bike-price"><strong>Rp30.000</strong> <small>/ jam</small></span>
+                            <button class="order-button" type="button" aria-label="Pesan United Miami">
+                                <i data-lucide="message-circle" aria-hidden="true"></i>
+                                <span>Pesan</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bike-card" data-search="pacific noris sepeda lipat folding" data-price="40000">
+                    <div class="bike-image image-pacific" role="img" aria-label="Sepeda lipat Pacific Noris">
+                    </div>
+                    <div class="bike-details">
+                        <h3>Pacific Noris</h3>
+                        <div class="bike-footer">
+                            <span class="bike-price"><strong>Rp40.000</strong> <small>/ jam</small></span>
+                            <button class="order-button" type="button" aria-label="Pesan Pacific Noris">
+                                <i data-lucide="message-circle" aria-hidden="true"></i>
+                                <span>Pesan</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <p class="empty-state" id="empty-state" hidden>Tidak ada sepeda yang cocok. Coba kata pencarian lain.</p>
+        </section>
+
+        <section class="contact-section" id="kontak" aria-labelledby="contact-title">
+            <div>
+                <p class="section-kicker">BUTUH BANTUAN?</p>
+                <h2 id="contact-title">Hubungi PedalPOP</h2>
+                <p>Ada pertanyaan tentang sepeda atau pemesanan? Kami siap membantu melalui WhatsApp.</p>
+            </div>
+            <a class="contact-link" href="https://wa.me/6285846243761?text=Halo%20PedalPOP%2C%20saya%20ingin%20bertanya%20tentang%20sewa%20sepeda." target="_blank" rel="noopener noreferrer">
+                <i data-lucide="message-circle" aria-hidden="true"></i>
+                <span>Chat WhatsApp</span>
+            </a>
+        </section>
+    </main>
+
+</body>
+
+</html>

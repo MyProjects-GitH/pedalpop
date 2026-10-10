@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f8f4" />
+    <title>Pesan sepeda | PedalPOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+    <script src="js/order.js" defer></script>
+</head>
+
+<body class="order-page">
+    <header class="app-header">
+        <nav class="navbar order-navbar" aria-label="Navigasi halaman">
+            <a class="brand" href="index.html" aria-label="PedalPOP, kembali ke beranda">
+                <span class="brand-mark" aria-hidden="true"><i data-lucide="bike"></i></span>
+                <span class="brand-name">pedal<span>pop</span></span>
+            </a>
+            <a class="back-link" href="index.html#pilih-sepeda">
+                <i data-lucide="arrow-left" aria-hidden="true"></i>
+                <span>Kembali</span>
+            </a>
+        </nav>
+    </header>
+
+    <main class="order-content">
+        <div class="order-heading">
+            <p class="section-kicker">PESAN SEPEDA</p>
+            <h1>Lengkapi pesananmu</h1>
+            <p>Pilih jadwal sewa dan isi detail kontak untuk melanjutkan ke WhatsApp.</p>
+        </div>
+
+        <section class="order-layout" id="order-layout" hidden>
+            <article class="order-bike-card" aria-labelledby="order-bike-name">
+                <div class="order-bike-image" id="order-bike-image" role="img"></div>
+                <div class="order-bike-details">
+                    <span class="order-bike-label"><i data-lucide="bike" aria-hidden="true"></i> Sepeda pilihanmu</span>
+                    <h2 id="order-bike-name"></h2>
+                    <p class="order-bike-price"><strong id="order-bike-price"></strong> <span>/ jam</span></p>
+                    <p class="order-price-note"><i data-lucide="badge-check" aria-hidden="true"></i> Tarif sewa per jam</p>
+                </div>
+            </article>
+
+            <form class="order-form" id="order-form">
+                <h2>Detail pemesanan</h2>
+                <label for="customer-name">Nama lengkap</label>
+                <input id="customer-name" name="customerName" type="text" autocomplete="name" placeholder="Nama pemesan" required />
+
+                <label for="customer-phone">Nomor WhatsApp</label>
+                <input id="customer-phone" name="customerPhone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Contoh: 081234567890" required />
+
+                <div class="order-form-row">
+                    <div>
+                        <label for="rental-date">Tanggal sewa</label>
+                        <input id="rental-date" name="rentalDate" type="date" required />
+                    </div>
+                    <div>
+                        <label for="rental-hours">Durasi (jam)</label>
+                        <input id="rental-hours" name="rentalHours" type="number" min="1" max="24" value="1" required />
+                    </div>
+                </div>
+
+                <div class="order-total">
+                    <span>Total</span>
+                    <strong id="order-total-price"></strong>
+                </div>
+
+                <button class="order-submit" type="submit">
+                    <i data-lucide="message-circle" aria-hidden="true"></i>
+                    <span>Lanjutkan ke WhatsApp</span>
+                </button>
+                <p class="order-form-note">Pesanan akan dikirim ke WhatsApp PedalPOP untuk konfirmasi.</p>
+            </form>
+        </section>
+
+        <section class="order-error" id="order-error" role="alert" hidden>
+            <i data-lucide="circle-alert" aria-hidden="true"></i>
+            <h2>Detail sepeda tidak ditemukan</h2>
+            <p>Kembali ke daftar sepeda lalu pilih sepeda yang ingin dipesan.</p>
+            <a class="order-submit order-error-link" href="index.html#pilih-sepeda">Lihat daftar sepeda</a>
+        </section>
+    </main>
+</body>
+
+</html>
