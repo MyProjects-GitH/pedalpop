@@ -376,11 +376,17 @@ h2 {
 
 .bike-image {
     position: relative;
-    flex: 0 0 32%;
+    flex: 0 0 40%;
     min-height: 130px;
     background-color: #d9e2cf;
     background-position: center 48%;
     background-size: cover;
+    cursor: zoom-in;
+}
+
+.bike-image:focus-visible {
+    outline: 3px solid #8ca86c;
+    outline-offset: -3px;
 }
 
 .image-trail {
@@ -407,6 +413,78 @@ h2 {
     background-image: linear-gradient(0deg, rgb(24 35 28 / 14%), transparent 45%), url("https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Parked_bicycle_with_graffitied_building_facade_and_doors_in_Amsterdam.jpg/1280px-Parked_bicycle_with_graffitied_building_facade_and_doors_in_Amsterdam.jpg");
 }
 
+.bike-image-dialog {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    padding: 0;
+    overflow: hidden;
+    background: #000;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.bike-image-dialog::backdrop {
+    background: #000;
+}
+
+.bike-image-dialog-photo {
+    position: absolute;
+    inset: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto, contain;
+}
+
+.bike-image-dialog-close {
+    position: absolute;
+    z-index: 1;
+    top: max(20px, env(safe-area-inset-top));
+    right: max(20px, env(safe-area-inset-right));
+    display: grid;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    color: var(--white);
+    background: rgb(0 0 0 / 55%);
+    border: 1px solid rgb(255 255 255 / 45%);
+    border-radius: 50%;
+    cursor: pointer;
+    place-items: center;
+}
+
+.bike-image-dialog-close:hover {
+    background: var(--forest);
+}
+
+.bike-image-dialog-close:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
+}
+
+.bike-image-dialog-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.bike-image-dialog-caption {
+    position: absolute;
+    right: 20px;
+    bottom: max(20px, env(safe-area-inset-bottom));
+    left: 20px;
+    margin: 0;
+    color: var(--white);
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 0 1px 8px rgb(0 0 0 / 75%);
+}
+
 
 .bike-details {
     display: flex;
@@ -422,12 +500,38 @@ h2 {
     font-size: 16px;
 }
 
+.bike-inclusion {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+    padding: 4px 7px;
+    margin: 7px 0 0;
+    color: #397477;
+    background: #edf7f5;
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.bike-inclusion svg {
+    width: 13px;
+    height: 13px;
+}
+
+.bike-inclusion strong {
+    color: #24595b;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .04em;
+}
+
 .bike-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    margin-top: 14px;
+    margin-top: 10px;
 }
 
 h3 {
@@ -438,11 +542,18 @@ h3 {
 }
 
 .bike-price {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
     flex: 0 0 auto;
+    padding: 6px 9px;
+    background: #f1f8e8;
+    border-radius: 10px;
     white-space: nowrap;
 }
 
 .bike-price strong {
+    color: #496c31;
     font-family: "Manrope", sans-serif;
     font-size: 15px;
     font-weight: 800;
@@ -458,24 +569,31 @@ h3 {
     align-items: center;
     justify-content: center;
     gap: 7px;
-    min-height: 36px;
-    padding: 0 10px;
-    color: var(--white);
-    background: var(--forest);
+    min-height: 40px;
+    padding: 0 13px;
+    color: var(--forest);
+    background: var(--green);
     border: 0;
     border-radius: 11px;
+    box-shadow: 0 3px 8px rgb(38 60 49 / 12%);
     cursor: pointer;
     font-size: 12px;
     font-weight: 700;
-    transition: background 160ms ease, transform 160ms ease;
+    transition: background 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
 .order-button:hover {
-    background: #385743;
+    background: #a9e64f;
+    box-shadow: 0 5px 12px rgb(38 60 49 / 18%);
 }
 
 .order-button:active {
     transform: scale(.97);
+}
+
+.order-button:focus-visible {
+    outline: 2px solid #678f3e;
+    outline-offset: 3px;
 }
 
 .order-button svg {
@@ -941,7 +1059,7 @@ h3 {
     }
 
     .bike-image {
-        flex-basis: 30%;
+        flex-basis: 36%;
         min-height: 150px;
     }
 }
@@ -1013,7 +1131,7 @@ h3 {
     }
 
     .bike-image {
-        flex-basis: 30%;
+        flex-basis: 36%;
         min-height: 125px;
     }
 
@@ -1108,7 +1226,7 @@ h3 {
     }
 
     .bike-image {
-        flex-basis: 28%;
+        flex-basis: 34%;
         min-height: 110px;
     }
 
@@ -1196,7 +1314,7 @@ h3 {
     }
 
     .bike-image {
-        flex-basis: 26%;
+        flex-basis: 32%;
         min-height: 100px;
     }
 

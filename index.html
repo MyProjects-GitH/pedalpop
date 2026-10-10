@@ -74,10 +74,15 @@
 
             <div class="bike-grid" id="bike-grid">
                 <article class="bike-card" data-search="polygon path 3 sepeda gunung dago bandung" data-price="45000">
-                    <div class="bike-image image-trail" role="img" aria-label="Sepeda gunung Polygon di jalur alam">
+                    <div class="bike-image image-trail" role="button" tabindex="0" aria-label="Sepeda gunung Polygon di jalur alam" title="Klik untuk memperbesar foto">
                     </div>
                     <div class="bike-details">
                         <h3>Polygon Path 3</h3>
+                        <p class="bike-inclusion">
+                            <i data-lucide="droplets" aria-hidden="true"></i>
+                            <strong>GRATIS!</strong>
+                            <span>Air mineral</span>
+                        </p>
                         <div class="bike-footer">
                             <span class="bike-price"><strong>Rp45.000</strong> <small>/ jam</small></span>
                             <button class="order-button" type="button" aria-label="Pesan Polygon Path 3">
@@ -89,10 +94,15 @@
                 </article>
 
                 <article class="bike-card" data-search="united clovis city bike sepeda kota braga bandung" data-price="35000">
-                    <div class="bike-image image-city" role="img" aria-label="Sepeda kota United Clovis">
+                    <div class="bike-image image-city" role="button" tabindex="0" aria-label="Sepeda kota United Clovis" title="Klik untuk memperbesar foto">
                     </div>
                     <div class="bike-details">
                         <h3>United Clovis</h3>
+                        <p class="bike-inclusion">
+                            <i data-lucide="droplets" aria-hidden="true"></i>
+                            <strong>GRATIS!</strong>
+                            <span>Air mineral</span>
+                        </p>
                         <div class="bike-footer">
                             <span class="bike-price"><strong>Rp35.000</strong> <small>/ jam</small></span>
                             <button class="order-button" type="button" aria-label="Pesan United Clovis">
@@ -104,10 +114,15 @@
                 </article>
 
                 <article class="bike-card" data-search="trek marlin 5 sepeda gunung mtb" data-price="55000">
-                    <div class="bike-image image-trek" role="img" aria-label="Sepeda gunung Trek Marlin 5">
+                    <div class="bike-image image-trek" role="button" tabindex="0" aria-label="Sepeda gunung Trek Marlin 5" title="Klik untuk memperbesar foto">
                     </div>
                     <div class="bike-details">
                         <h3>Trek Marlin 5</h3>
+                        <p class="bike-inclusion">
+                            <i data-lucide="droplets" aria-hidden="true"></i>
+                            <strong>GRATIS!</strong>
+                            <span>Air mineral</span>
+                        </p>
                         <div class="bike-footer">
                             <span class="bike-price"><strong>Rp55.000</strong> <small>/ jam</small></span>
                             <button class="order-button" type="button" aria-label="Pesan Trek Marlin 5">
@@ -119,10 +134,15 @@
                 </article>
 
                 <article class="bike-card" data-search="polygon siskiu d5 sepeda gunung trail" data-price="65000">
-                    <div class="bike-image image-siskiu" role="img" aria-label="Sepeda gunung Polygon Siskiu D5">
+                    <div class="bike-image image-siskiu" role="button" tabindex="0" aria-label="Sepeda gunung Polygon Siskiu D5" title="Klik untuk memperbesar foto">
                     </div>
                     <div class="bike-details">
                         <h3>Polygon Siskiu D5</h3>
+                        <p class="bike-inclusion">
+                            <i data-lucide="droplets" aria-hidden="true"></i>
+                            <strong>GRATIS!</strong>
+                            <span>Air mineral</span>
+                        </p>
                         <div class="bike-footer">
                             <span class="bike-price"><strong>Rp65.000</strong> <small>/ jam</small></span>
                             <button class="order-button" type="button" aria-label="Pesan Polygon Siskiu D5">
@@ -134,10 +154,15 @@
                 </article>
 
                 <article class="bike-card" data-search="united miami city bike sepeda kota" data-price="30000">
-                    <div class="bike-image image-miami" role="img" aria-label="Sepeda kota United Miami">
+                    <div class="bike-image image-miami" role="button" tabindex="0" aria-label="Sepeda kota United Miami" title="Klik untuk memperbesar foto">
                     </div>
                     <div class="bike-details">
                         <h3>United Miami</h3>
+                        <p class="bike-inclusion">
+                            <i data-lucide="droplets" aria-hidden="true"></i>
+                            <strong>GRATIS!</strong>
+                            <span>Air mineral</span>
+                        </p>
                         <div class="bike-footer">
                             <span class="bike-price"><strong>Rp30.000</strong> <small>/ jam</small></span>
                             <button class="order-button" type="button" aria-label="Pesan United Miami">
@@ -149,10 +174,15 @@
                 </article>
 
                 <article class="bike-card" data-search="pacific noris sepeda lipat folding" data-price="40000">
-                    <div class="bike-image image-pacific" role="img" aria-label="Sepeda lipat Pacific Noris">
+                    <div class="bike-image image-pacific" role="button" tabindex="0" aria-label="Sepeda lipat Pacific Noris" title="Klik untuk memperbesar foto">
                     </div>
                     <div class="bike-details">
                         <h3>Pacific Noris</h3>
+                        <p class="bike-inclusion">
+                            <i data-lucide="droplets" aria-hidden="true"></i>
+                            <strong>GRATIS!</strong>
+                            <span>Air mineral</span>
+                        </p>
                         <div class="bike-footer">
                             <span class="bike-price"><strong>Rp40.000</strong> <small>/ jam</small></span>
                             <button class="order-button" type="button" aria-label="Pesan Pacific Noris">
@@ -191,6 +221,14 @@
             </div>
         </section>
     </main>
+
+    <dialog class="bike-image-dialog" id="bike-image-dialog" aria-labelledby="bike-image-caption">
+        <button class="bike-image-dialog-close" id="bike-image-dialog-close" type="button" aria-label="Tutup foto">
+            <i data-lucide="x" aria-hidden="true"></i>
+        </button>
+        <div class="bike-image-dialog-photo" id="bike-image-dialog-photo" role="img"></div>
+        <p class="bike-image-dialog-caption" id="bike-image-caption"></p>
+    </dialog>
 
     <footer class="developer-credit" aria-label="Informasi developer">
         <span>Dikembangkan oleh <strong>Irfan Nugraha.S.Kom</strong></span>
