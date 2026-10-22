@@ -14,8 +14,10 @@ const allowedImageClasses = new Set([
 const orderLayout = document.querySelector("#order-layout");
 const orderError = document.querySelector("#order-error");
 const orderForm = document.querySelector("#order-form");
-const rentalHoursInput = document.querySelector("#rental-hours");
+const rentalDurationSelect = document.querySelector("#rental-hours");
 const orderTotalPrice = document.querySelector("#order-total-price");
+const orderBikePrice = document.querySelector("#order-bike-price");
+const orderBikeDuration = document.querySelector("#order-bike-duration");
 const currencyFormatter = new Intl.NumberFormat("id-ID", {
   style: "currency",
   currency: "IDR",
@@ -24,8 +26,20 @@ const currencyFormatter = new Intl.NumberFormat("id-ID", {
 const whatsappNumber = "6285846243761";
 
 function updateTotal() {
-  const hours = Number(rentalHoursInput.value);
-  orderTotalPrice.textContent = currencyFormatter.format(bikePrice * hours);
+  const selectedOption = rentalDurationSelect.selectedOptions[0];
+  const duration = Number(selectedOption.value);
+  const price = Number(selectedOption.dataset.price);
+
+  if (!duration || !Number.isSafeInteger(price) || price <= 0) {
+    orderBikePrice.textContent = "Pilih durasi";
+    orderBikeDuration.textContent = "";
+    orderTotalPrice.textContent = "-";
+    return;
+  }
+
+  orderBikePrice.textContent = currencyFormatter.format(price);
+  orderBikeDuration.textContent = `/ ${duration} jam`;
+  orderTotalPrice.textContent = currencyFormatter.format(price);
 }
 
 if (
@@ -38,10 +52,9 @@ if (
   bikeImage.classList.add(bikeImageClass);
   bikeImage.setAttribute("aria-label", bikeAlt || `Foto ${bikeName}`);
   document.querySelector("#order-bike-name").textContent = bikeName;
-  document.querySelector("#order-bike-price").textContent = currencyFormatter.format(bikePrice);
   orderLayout.hidden = false;
 
-  rentalHoursInput.addEventListener("input", updateTotal);
+  rentalDurationSelect.addEventListener("change", updateTotal);
   updateTotal();
 
   orderForm.addEventListener("submit", (event) => {
@@ -55,12 +68,14 @@ if (
     const customerName = String(formData.get("customerName")).trim();
     const customerPhone = String(formData.get("customerPhone")).trim();
     const rentalDate = String(formData.get("rentalDate"));
+    const selectedOption = rentalDurationSelect.selectedOptions[0];
     const rentalHours = Number(formData.get("rentalHours"));
-    const total = currencyFormatter.format(bikePrice * rentalHours);
+    const rentalPrice = Number(selectedOption.dataset.price);
+    const total = currencyFormatter.format(rentalPrice);
     const message = [
       "Halo PedalPOP, saya ingin memesan sepeda:",
       `Sepeda: ${bikeName}`,
-      `Tarif: ${currencyFormatter.format(bikePrice)} / jam`,
+      `Tarif: ${total} / ${rentalHours} jam`,
       `Tanggal sewa: ${rentalDate}`,
       `Durasi: ${rentalHours} jam`,
       `Total: ${total}`,

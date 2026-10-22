@@ -44,14 +44,14 @@
                     <span class="order-bike-label"><i data-lucide="bike" aria-hidden="true"></i> Sepeda pilihanmu</span>
                     <h2 id="order-bike-name"></h2>
                     <div class="order-bike-offer">
-                        <p class="order-bike-price"><strong id="order-bike-price"></strong> <span>/ jam</span></p>
+                        <p class="order-bike-price"><strong id="order-bike-price"></strong> <span id="order-bike-duration"></span></p>
                         <p class="bike-inclusion">
                             <i data-lucide="droplets" aria-hidden="true"></i>
                             <strong>GRATIS!</strong>
                             <span>Air mineral</span>
                         </p>
                     </div>
-                    <p class="order-price-note"><i data-lucide="badge-check" aria-hidden="true"></i> Tarif sewa per jam</p>
+                    <p class="order-price-note"><i data-lucide="badge-check" aria-hidden="true"></i> Harga mengikuti durasi yang dipilih</p>
                 </div>
             </article>
 
@@ -69,8 +69,12 @@
                         <input id="rental-date" name="rentalDate" type="date" required />
                     </div>
                     <div>
-                        <label for="rental-hours">Durasi (jam)</label>
-                        <input id="rental-hours" name="rentalHours" type="number" min="1" max="24" value="1" required />
+                        <label for="rental-hours">Pilih durasi sewa</label>
+                        <select id="rental-hours" name="rentalHours" required>
+                            <option value="2" data-price="20000">2 jam - Rp20.000</option>
+                            <option value="3" data-price="30000">3 jam - Rp30.000</option>
+                            <option value="4" data-price="35000">4 jam - Rp35.000</option>
+                        </select>
                     </div>
                 </div>
 
