@@ -31,7 +31,7 @@ const currencyFormatter = new Intl.NumberFormat("id-ID", {
   currency: "IDR",
   maximumFractionDigits: 0
 });
-const whatsappNumber = "6285846243761";
+const whatsappNumber = "62882000513178";
 
 function updateTotal() {
   const selectedOption = rentalDurationSelect.selectedOptions[0];
@@ -107,6 +107,7 @@ orderForm.addEventListener("submit", (event) => {
     const formData = new FormData(orderForm);
     const customerName = String(formData.get("customerName")).trim();
     const customerPhone = String(formData.get("customerPhone")).trim();
+    const bookingTime = String(formData.get("bookingTime")).trim();
     const rentalDate = String(formData.get("rentalDate"));
     const selectedOption = rentalDurationSelect.selectedOptions[0];
     const rentalHours = Number(formData.get("rentalHours"));
@@ -114,13 +115,17 @@ orderForm.addEventListener("submit", (event) => {
     const total = currencyFormatter.format(rentalPrice);
     const message = [
       "Halo PedalPOP, saya ingin memesan sepeda:",
-      `Sepeda: ${bikeName}`,
-      `Tarif: ${total} / ${rentalHours} jam`,
-      `Tanggal sewa: ${rentalDate}`,
-      `Durasi: ${rentalHours} jam`,
-      `Total: ${total}`,
-      `Nama: ${customerName}`,
-      `Nomor WhatsApp: ${customerPhone}`
+      ``,
+      `Nama : ${customerName}`,
+      `Nomor WhatsApp : ${customerPhone}`,
+      ``,
+      `Sepeda : ${bikeName}`,
+      `Tarif : ${total} / ${rentalHours} jam`,
+      `Jam booking : ${bookingTime}`,
+      `Tanggal sewa : ${rentalDate}`,
+      `Durasi : ${rentalHours} jam`,
+      ``,
+      `Total : ${total}`
     ].join("\n");
 
     window.open(
