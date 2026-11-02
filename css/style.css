@@ -389,28 +389,32 @@ h2 {
     outline-offset: -3px;
 }
 
-.image-trail {
-    background-image: linear-gradient(0deg, rgb(24 35 28 / 14%), transparent 45%), url("https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1000&q=85");
+.image-mtb-26 {
+    background-image: linear-gradient(0deg, rgb(24 35 28 / 14%), transparent 45%), url("../img/MTB-26.jpg");
 }
 
-.image-city {
-    background-image: linear-gradient(0deg, rgb(24 35 28 / 12%), transparent 45%), url("https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&w=1000&q=85");
+.image-mtb-27-5 {
+    background-image: linear-gradient(0deg, rgb(24 35 28 / 12%), transparent 45%), url("../img/MTB-27.jpeg");
 }
 
-.image-trek {
-    background-image: linear-gradient(0deg, rgb(24 35 28 / 14%), transparent 45%), url("https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1000&q=85");
+.image-pro-action-tosca {
+    background-image: linear-gradient(0deg, rgb(24 35 28 / 14%), transparent 45%), url("../img/Pro Action Tosca.jpg");
 }
 
-.image-siskiu {
-    background-image: linear-gradient(0deg, rgb(24 35 28 / 14%), transparent 45%), url("https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&w=1000&q=85");
+.image-pro-action-kuning {
+    background-image: linear-gradient(0deg, rgb(24 35 28 / 14%), transparent 45%), url("../img/Pro Action Kuning.jpg");
 }
 
-.image-miami {
-    background-image: linear-gradient(0deg, rgb(24 35 28 / 14%), transparent 45%), url("https://upload.wikimedia.org/wikipedia/commons/0/02/Bicycle_reflections.jpg");
+.image-kalcer-merah {
+    background-image: linear-gradient(0deg, rgb(24 35 28 / 14%), transparent 45%), url("../img/Kalcer Merah.jpg");
 }
 
-.image-pacific {
-    background-image: linear-gradient(0deg, rgb(24 35 28 / 14%), transparent 45%), url("https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Parked_bicycle_with_graffitied_building_facade_and_doors_in_Amsterdam.jpg/1280px-Parked_bicycle_with_graffitied_building_facade_and_doors_in_Amsterdam.jpg");
+.image-kalcer-black-pink {
+    background-image: linear-gradient(0deg, rgb(24 35 28 / 14%), transparent 45%), url("../img/Kalcer Black Pink.jpg");
+}
+
+.image-kalcer-biru {
+    background-image: linear-gradient(0deg, rgb(24 35 28 / 14%), transparent 45%), url("../img/Kalcer Biru.jpg");
 }
 
 .bike-image-dialog {
@@ -1098,6 +1102,12 @@ h3 {
         flex-basis: 36%;
         min-height: 150px;
     }
+
+    .order-layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
 }
 
 @media (max-width: 700px) {
@@ -1166,12 +1176,18 @@ h3 {
         gap: 14px;
     }
 
+    .bike-card {
+        flex-direction: column;
+    }
+
     .bike-image {
-        flex-basis: 36%;
-        min-height: 125px;
+        flex-basis: 40%;
+        width: 100%;
+        min-height: 170px;
     }
 
     .bike-details {
+        width: 100%;
         padding: 14px;
     }
 
@@ -1265,11 +1281,6 @@ h3 {
         border-radius: 15px;
     }
 
-    .bike-image {
-        flex-basis: 34%;
-        min-height: 110px;
-    }
-
     .bike-details {
         padding: 12px;
     }
@@ -1351,11 +1362,6 @@ h3 {
     .reset-filter-button {
         gap: 4px;
         padding: 0 8px;
-    }
-
-    .bike-image {
-        flex-basis: 32%;
-        min-height: 100px;
     }
 
     .bike-details {

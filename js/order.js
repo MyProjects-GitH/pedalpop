@@ -4,13 +4,15 @@ const bikePrice = Number(orderParams.get("price"));
 const bikeImageClass = orderParams.get("image");
 const bikeAlt = orderParams.get("alt");
 const allowedImageClasses = new Set([
-  "image-trail",
-  "image-city",
-  "image-trek",
-  "image-siskiu",
-  "image-miami",
-  "image-pacific"
+  "image-mtb-26",
+  "image-mtb-27-5",
+  "image-pro-action-tosca",
+  "image-pro-action-kuning",
+  "image-kalcer-merah",
+  "image-kalcer-black-pink",
+  "image-kalcer-biru"
 ]);
+
 const orderLayout = document.querySelector("#order-layout");
 const orderError = document.querySelector("#order-error");
 const orderForm = document.querySelector("#order-form");
