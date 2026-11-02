@@ -843,6 +843,12 @@ h3 {
     background-color: #d9e2cf;
     background-position: center;
     background-size: cover;
+    cursor: pointer;
+}
+
+.order-bike-image:focus-visible {
+    outline: 2px solid #8ca86c;
+    outline-offset: 3px;
 }
 
 .order-bike-details {

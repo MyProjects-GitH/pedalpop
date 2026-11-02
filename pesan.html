@@ -39,7 +39,7 @@
 
         <section class="order-layout" id="order-layout" hidden>
             <article class="order-bike-card" aria-labelledby="order-bike-name">
-                <div class="order-bike-image" id="order-bike-image" role="img"></div>
+                <div class="order-bike-image" id="order-bike-image" role="button" tabindex="0" aria-label="Lihat foto sepeda yang dipilih"></div>
                 <div class="order-bike-details">
                     <span class="order-bike-label"><i data-lucide="bike" aria-hidden="true"></i> Sepeda pilihanmu</span>
                     <h2 id="order-bike-name"></h2>
@@ -98,6 +98,14 @@
             <a class="order-submit order-error-link" href="index.html#pilih-sepeda">Lihat daftar sepeda</a>
         </section>
     </main>
+
+    <dialog class="bike-image-dialog" id="bike-image-dialog" aria-labelledby="bike-image-caption">
+        <button class="bike-image-dialog-close" id="bike-image-dialog-close" type="button" aria-label="Tutup foto">
+            <i data-lucide="x" aria-hidden="true"></i>
+        </button>
+        <div class="bike-image-dialog-photo" id="bike-image-dialog-photo" role="img"></div>
+        <p class="bike-image-dialog-caption" id="bike-image-caption"></p>
+    </dialog>
 
     <footer class="developer-credit" aria-label="Informasi developer">
         <span>Dikembangkan oleh <strong>Irfan Nugraha.S.Kom</strong></span>

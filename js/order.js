@@ -20,6 +20,12 @@ const rentalDurationSelect = document.querySelector("#rental-hours");
 const orderTotalPrice = document.querySelector("#order-total-price");
 const orderBikePrice = document.querySelector("#order-bike-price");
 const orderBikeDuration = document.querySelector("#order-bike-duration");
+const bikeImageDialog = document.querySelector("#bike-image-dialog");
+const bikeImageDialogPhoto = document.querySelector("#bike-image-dialog-photo");
+const bikeImageDialogCaption = document.querySelector("#bike-image-caption");
+const bikeImageDialogCloseButton = document.querySelector("#bike-image-dialog-close");
+const orderBikeImage = document.querySelector("#order-bike-image");
+let previousDocumentOverflow = "";
 const currencyFormatter = new Intl.NumberFormat("id-ID", {
   style: "currency",
   currency: "IDR",
@@ -44,27 +50,59 @@ function updateTotal() {
   orderTotalPrice.textContent = currencyFormatter.format(price);
 }
 
+function openBikeImageDialog() {
+  if (!bikeImageDialog || !bikeImageDialogPhoto || !bikeImageDialogCaption || !bikeImageClass) {
+    return;
+  }
+
+  bikeImageDialogPhoto.className = `bike-image-dialog-photo ${bikeImageClass}`;
+  bikeImageDialogPhoto.setAttribute("aria-label", bikeAlt || `Foto ${bikeName}`);
+  bikeImageDialogCaption.textContent = bikeName;
+  previousDocumentOverflow = document.documentElement.style.overflow;
+  document.documentElement.style.overflow = "hidden";
+  bikeImageDialog.showModal();
+  bikeImageDialogCloseButton.focus();
+}
+
 if (
   bikeName &&
   Number.isSafeInteger(bikePrice) &&
   bikePrice > 0 &&
   allowedImageClasses.has(bikeImageClass)
 ) {
-  const bikeImage = document.querySelector("#order-bike-image");
-  bikeImage.classList.add(bikeImageClass);
-  bikeImage.setAttribute("aria-label", bikeAlt || `Foto ${bikeName}`);
-  document.querySelector("#order-bike-name").textContent = bikeName;
-  orderLayout.hidden = false;
+orderBikeImage.classList.add(bikeImageClass);
+orderBikeImage.setAttribute("aria-label", bikeAlt || `Foto ${bikeName}`);
+document.querySelector("#order-bike-name").textContent = bikeName;
+orderLayout.hidden = false;
 
-  rentalDurationSelect.addEventListener("change", updateTotal);
-  updateTotal();
-
-  orderForm.addEventListener("submit", (event) => {
+orderBikeImage.addEventListener("click", openBikeImageDialog);
+orderBikeImage.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" || event.key === " ") {
     event.preventDefault();
+    openBikeImageDialog();
+  }
+});
 
-    if (!orderForm.reportValidity()) {
-      return;
-    }
+rentalDurationSelect.addEventListener("change", updateTotal);
+updateTotal();
+
+bikeImageDialogCloseButton.addEventListener("click", () => bikeImageDialog.close());
+bikeImageDialog.addEventListener("click", (event) => {
+  if (event.target === bikeImageDialog) {
+    bikeImageDialog.close();
+  }
+});
+bikeImageDialog.addEventListener("close", () => {
+  document.documentElement.style.overflow = previousDocumentOverflow;
+  orderBikeImage.focus();
+});
+
+orderForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (!orderForm.reportValidity()) {
+    return;
+  }
 
     const formData = new FormData(orderForm);
     const customerName = String(formData.get("customerName")).trim();
